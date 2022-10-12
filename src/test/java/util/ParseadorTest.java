@@ -45,8 +45,6 @@ public class ParseadorTest {
 
         String operador = parseador.obtenerOperador(ecuacion2);
 
-        System.out.println("cargando...");
-
         assertEquals("+", operador);
     }
 }

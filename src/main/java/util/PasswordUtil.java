@@ -2,37 +2,24 @@ package util;
 
 public class PasswordUtil {
     public enum SecurityLevel {
-        NULL,WEAK, MEDIUM, STRONG
+        INCORRECTO, CORRECTO
     }
 
-    public SecurityLevel assessPassword(String password) {
-
-        if (password.isEmpty()||password.isBlank())
-            return SecurityLevel.NULL;
+    public static SecurityLevel assessPassword(String password) {
 
         if (password.length() < 8) {
-            return SecurityLevel.WEAK;
+            return SecurityLevel.INCORRECTO;
         }
 
         if (password.matches("[a-zA-Z]+")) {
-            return SecurityLevel.WEAK;
+            return SecurityLevel.INCORRECTO;
         }
 
-        if (password.matches("[a-zA-Z0-9]+")) {
-            return SecurityLevel.MEDIUM;
+        if (password.matches("[a-zA-Z0-9_$]+")) {
+            return SecurityLevel.CORRECTO;
         }
-        //para ser fuerte necesita tener
-        //    Minimo 8 caracteres
-        //    Maximo 15
-        //    Al menos una letra mayúscula
-        //    Al menos una letra minucula
-        //    Al menos un dígito
-        //    No espacios en blanco
-        //    Al menos 1 caracter especial
-        if (password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[$@$!%*?&])[A-Za-z\\d$@$!%*?&]{8,15}"))
-            return SecurityLevel.STRONG;
 
-        return SecurityLevel.WEAK;
+        return SecurityLevel.INCORRECTO;
 
     }
 }
