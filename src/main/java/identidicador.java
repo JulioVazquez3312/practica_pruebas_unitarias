@@ -7,7 +7,7 @@ public class identidicador {
             'V','W','X','Y','Z'};
     char sim [] = {'_', '$'};
     char num [] = {'0','1','2','3','4','5','6','7','8','9'};
-    String entrada="_$aaA_13()112S_Av1_$";
+    String entrada="L_$aaA_56()6_Av_$";
 
     public identidicador() {
         revicionNum();
@@ -53,15 +53,19 @@ public class identidicador {
     }
 
     public void revicionNum(){
-        if (entrada.charAt(0) != '0'& entrada.charAt(0) !='1'
-                & entrada.charAt(0) !='2'& entrada.charAt(0) !='3'& entrada.charAt(0) !='4'
-                & entrada.charAt(0) !='5' & entrada.charAt(0) !='6'& entrada.charAt(0) !='7'
-                & entrada.charAt(0) !='8'& entrada.charAt(0) !='9' ) {
-            System.out.println("Esta todo bien sin numeros");
-        } else if (entrada.charAt(0) == '$' & entrada.charAt(0) == '_') {
-            System.out.println("Esta todo bien sin numeros");
-        } else
-           System.out.println("No se puede iniciar con numeros solo con L");
+        boolean flag = false;
+        for (int i = 1; i <entrada.length()-1 ; i++) {
+            if (entrada.charAt(i) == '0'|| entrada.charAt(i) =='1'
+                || entrada.charAt(i) =='2'|| entrada.charAt(i) =='3'|| entrada.charAt(i) =='4'
+                    || entrada.charAt(i) =='5' || entrada.charAt(i) =='6' || entrada.charAt(i) =='7'
+                    || entrada.charAt(i) =='8'& entrada.charAt(i) =='9' ) {
+                flag = true;
+            }
+        }
+        if (flag == true) {
+            System.out.println("Contiene numero");
+        } else System.out.println("No contiene numero");
+
     }
 
     public void letraIn(){
