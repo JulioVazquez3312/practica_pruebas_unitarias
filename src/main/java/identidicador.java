@@ -145,7 +145,36 @@ public class identidicador {
     }
 
     public void otrosSim(){
+        boolean sin = false,num = false,l = false,l2 = false;
+        for (int i = 0; i <entrada.length() ; i++) {
+            if (entrada.charAt(i) == '0' || entrada.charAt(i) == '1'
+                    || entrada.charAt(i) == '2' || entrada.charAt(i) == '3' || entrada.charAt(i) == '4'
+                    || entrada.charAt(i) == '5' || entrada.charAt(i) == '6' || entrada.charAt(i) == '7'
+                    || entrada.charAt(i) == '8' || entrada.charAt(i) == '9') {
+                num = true;
+            }
 
+            for (int c = 0; c < lm.length - 1; c++) {
+                if (entrada.charAt(i) == lm[c]) {
+                    l = true;
+                }
+            }
+
+            for (int c = 0; c < lm2.length - 1; c++) {
+                if (entrada.charAt(i) == lm2[c]) {
+                    l2 = true;
+                }
+            }
+
+            if (entrada.charAt(i) == sim[0] || entrada.charAt(i) == sim[1]) {
+                sin = true;
+            }
+            if (sin == false && num == false && l == false && l2 == false) {
+                System.out.println("Analizando...[Incorrecto]" +
+                        "\nNo se permiten simbolos distintos a '$' '_'");
+            }
+            sin = false; num = false; l = false; l2 = false;
+        }
 
     }
     public static void main(String[] args) {
