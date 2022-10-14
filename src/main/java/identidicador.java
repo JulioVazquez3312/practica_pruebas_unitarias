@@ -7,15 +7,16 @@ public class identidicador {
             'V','W','X','Y','Z'};
     char sim [] = {'_', '$'};
     char num [] = {'0','1','2','3','4','5','6','7','8','9'};
-    String entrada="ldfg)456$_";
+    String entrada="l4234234456$_";
 
     public identidicador() {
         letraIn();
         revicionletraMin();
-        revicionletraMay();
+        //revicionletraMay();
         revicionNum2();
         revicionSim2();
         verificadorEspacios();
+
     }
 
     public void verificadorEspacios(){
@@ -63,11 +64,10 @@ public class identidicador {
     }
 
     public void revicionSim(){
-        if (entrada.charAt(0) == '$' && entrada.charAt(0) == '_') {
+        if (entrada.charAt(0) == '$' || entrada.charAt(0) == '_') {
             System.out.println("Analizando...[CORRECTO] " +
                     "\nContiene los simbolos '$' '_'\n");
-        }
-        else
+        } else
             System.out.println("Analizando...[INCORRECTO] " +
                     "\nLa cadena no contiene los caracteres '$' '_'\n");
     }
@@ -84,8 +84,10 @@ public class identidicador {
         if (flag == true) {
             System.out.println("Analizando...[CORRECTO]" +
                     "\nContiene minusculas\n");
-        } else System.out.println("Analizando...[INCORRECTO]" +
-                "\nNo contiene minusculas\n");
+        } else
+            revicionletraMay();
+            //System.out.println("Analizando...[INCORRECTO]" +
+             //   "\nNo contiene minusculas\n");
     }
 
     public void revicionletraMay(){
@@ -101,7 +103,7 @@ public class identidicador {
             System.out.println("Analizando...[CORRECTO]" +
                     "\nContiene MAYUSCULAS\n");
         } else System.out.println("Analizando...[INCORRECTO]" +
-                "\nNo contiene MAYUSCULAS\n");
+                "\nNo contiene LETRAS\n");
     }
 
     public void revicionNum2(){
@@ -137,6 +139,9 @@ public class identidicador {
                     "\nContiene simbolos\n");
         } else System.out.println("Analizando...[INCORRECTO]" +
                 "\nNo contiene simbolos o no todos\n");
+    }
+
+    public void revisaOtrosSimbolos() {
     }
 
     public void otrosSim(){
