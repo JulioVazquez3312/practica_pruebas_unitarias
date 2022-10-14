@@ -7,7 +7,7 @@ public class identidicador {
             'V','W','X','Y','Z'};
     char sim [] = {'_', '$'};
     char num [] = {'0','1','2','3','4','5','6','7','8','9'};
-    String entrada="Ldfg)456$_";
+    String entrada="ldfg)456$_";
 
     public identidicador() {
         letraIn();
@@ -25,7 +25,7 @@ public class identidicador {
                 num++;
             }
         }
-        if (num<0)
+        if (num>0)
             System.out.println("Analizando...[INCORRECTO]" +
                     "\nNo se puede contener espacios en medio de las letras\n");
         else
@@ -140,9 +140,8 @@ public class identidicador {
     }
 
     public void otrosSim(){
-        for (int i = 0; i < entrada.length(); i++) {
 
-        }
+
     }
     public static void main(String[] args) {
         new identidicador();
